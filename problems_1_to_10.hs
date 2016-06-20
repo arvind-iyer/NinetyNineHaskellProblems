@@ -36,4 +36,18 @@ myReverse list = moveAndReverse list []
 		-- is repeated till the original is empty and reversed is filled
 		moveAndReverse [] list = list
 		moveAndReverse (x:xs) reversed = moveAndReverse xs (x:reversed)
-	
+
+-- Problem 6: Find out whether a list is a palindrome
+isPalindrome :: Eq a => [a] -> Bool 
+-- Reusing code heh
+isPalindrome list = (list  == (myReverse list)) 
+
+-- Problem 7: Flatten a nested list structure
+-- Solving by first defining a list that can have either elements or lists of 
+-- these nested lists
+data NestedList a = Elem a | List [NestedList a]
+flatten :: NestedList a -> [a]
+flatten (Elem x) = [x]
+flatten (List x) = concat (map flatten x) 
+
+-- Problem 8: Eliminate duplicates
