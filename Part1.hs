@@ -1,4 +1,16 @@
-
+module Part1
+  (
+    myLast
+  , secondLast
+  , elementAt
+  , myLength
+  , myReverse
+  , isPalindrome
+  , flatten
+  , compress
+  , pack
+  , encode
+  ) where
 -- Problem 1: Find the last element of a list.
 myLast :: [a] -> a
 myLast [] = error "Empty list"
