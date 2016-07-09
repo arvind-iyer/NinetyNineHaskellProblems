@@ -12,3 +12,12 @@ encodeModified x = map pairToEncodeList (encode x)
                           pairToEncodeList (n, i) = Multiple n i
 
 
+-- Problem 12: Run length decoding
+-- -----------
+-- Desc: Given a run-length encoding code list generated as specified in Problem 11, construct it's uncompressed version
+decodeModified :: [EncodeList a] -> [a]
+decodeModified = concatMap decodeMod'
+                 where
+                   decodeMod' (Single i) = [i]
+                   decodeMod' (Multiple n i) = replicate n i
+
