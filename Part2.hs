@@ -1,4 +1,5 @@
 import Part1
+
 -- Problem 11: Modified run length encoding
 -- -----------
 -- Desc: Modify the result of problem 10 in such a way that if an element has no duplicates it is simply copied
@@ -21,3 +22,19 @@ decodeModified = concatMap decodeMod'
                    decodeMod' (Single i) = [i]
                    decodeMod' (Multiple n i) = replicate n i
 
+
+-- Problem 13: Run-length encoding (direct)
+-- Example:
+--  > encodeDirect "aaabbc"
+-- => [Multiple 3 'a', Multiple 2 'b', Single 'c']
+encodeDirect' :: Eq a => [a] -> [[a]]
+encodeDirect' [] = []
+encodeDirect' x = takeWhile (==(head x)) x : encodeDirect' (dropWhile (==(head x)) x)
+
+toEncodeList  :: [y] -> (EncodeList y)
+toEncodeList y
+  | (length y) == 1  = Single (head y)
+  | otherwise = Multiple (length y) (head y)
+
+encodeDirect :: Eq a => [a] -> [EncodeList a]
+encodeDirect x = map toEncodeList (encodeDirect' x)
