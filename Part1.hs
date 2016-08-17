@@ -26,16 +26,16 @@ secondLast (_:x) = last ( init x )
 --  The first element in the list is number 1.
 elementAt :: Int -> [a] -> a
 elementAt k _
-	| k < 1  = error "Index not a positive integer"
+  | k < 1  = error "Index not a positive integer"
 elementAt k list = list !! (k-1)
 
 -- Problem 4: Find the number of elements of a list.
 myLength :: [a] -> Int
 myLength list = countElems list 0
-	where
-		-- Pop and count until list is empty
-		countElems [] t = t
-		countElems (x:xs) t = countElems xs (t+1)
+  where
+    -- Pop and count until list is empty
+    countElems [] t = t
+    countElems (x:xs) t = countElems xs (t+1)
 
 -- Problem 5: Reverse a list
 
@@ -43,12 +43,12 @@ myLength list = countElems list 0
 -- Feels like a cheat
 myReverse :: [a] -> [a]
 myReverse list = moveAndReverse list []
-	where
-		-- Popping first element and pushing it into the
-		-- first position of the reversed list
-		-- is repeated till the original is empty and reversed is filled
-		moveAndReverse [] list = list
-		moveAndReverse (x:xs) reversed = moveAndReverse xs (x:reversed)
+  where
+    -- Popping first element and pushing it into the
+    -- first position of the reversed list
+    -- is repeated till the original is empty and reversed is filled
+    moveAndReverse [] list = list
+    moveAndReverse (x:xs) reversed = moveAndReverse xs (x:reversed)
 
 -- Problem 6: Find out whether a list is a palindrome
 isPalindrome :: Eq a => [a] -> Bool

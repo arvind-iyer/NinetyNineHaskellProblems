@@ -1,4 +1,19 @@
+module Part2
+  (
+     encodeModified
+    ,decodeModified
+    ,encodeDirect
+    ,duplicate
+    ,repli
+    ,dropEvery
+    ,split
+    ,slice
+    ,rotate
+    ,removeAt
+  )  where
+
 import Part1
+
 
 -- Problem 11: Modified run length encoding
 -- -----------
